@@ -21,11 +21,6 @@ export class Main extends Component {
   }
 
   render() {
-    console.log(this.state.selectedDish);
-    console.log(
-      this.state.dishes.filter(dish => dish.id === this.state.selectedDish)
-    );
-
     return (
       <div className="Main">
         <Navbar dark color="primary">
