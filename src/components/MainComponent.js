@@ -4,8 +4,12 @@ import { Menu } from './MenuComponents';
 import { DishDetail } from './DishdetailComponent';
 import { Header } from './HeaderComponent';
 import { Footer } from './FooterComponent';
-import { DISHES } from '../shared/dishes.js';
 import Home from './HomeComponents';
+import Contact from './ContactConponent';
+import { DISHES } from '../shared/dishes.js';
+import { LEADERS } from '../shared/leader.js';
+import { PROMOTIONS } from '../shared/promotions.js';
+import { COMMENTS } from '../shared/comments.js';
 
 export class Main extends Component {
   constructor(props) {
@@ -13,7 +17,10 @@ export class Main extends Component {
 
     this.state = {
       dishes: DISHES,
-      selectedDish: null
+      selectedDish: null,
+      comments: COMMENTS,
+      leaders: LEADERS,
+      promotions: PROMOTIONS
     };
   }
 
@@ -25,7 +32,13 @@ export class Main extends Component {
 
   render() {
     const Homepage = () => {
-      return <Home />;
+      return (
+        <Home
+          dish={this.state.dishes.filter(dish => dish.featured)[0]}
+          promotion={this.state.promotions.filter(promo => promo.featured)[0]}
+          leader={this.state.leaders.filter(lead => lead.featured)[0]}
+        />
+      );
     };
 
     return (
@@ -38,6 +51,7 @@ export class Main extends Component {
             path="/menu"
             component={() => <Menu dishes={this.state.dishes} />}
           />
+          <Route excat path="/contactus" component={Contact} />
           <Redirect to="/home" />
         </Switch>
 

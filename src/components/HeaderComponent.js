@@ -58,7 +58,7 @@ export class Header extends Component {
                   </NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink className="nav-link" to="/contact">
+                  <NavLink className="nav-link" to="/contactus">
                     <span className="fa fa-address-card fa-lg">
                       {' '}
                       Contact Us
