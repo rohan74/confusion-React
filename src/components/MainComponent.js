@@ -6,6 +6,7 @@ import { Header } from './HeaderComponent';
 import { Footer } from './FooterComponent';
 import Home from './HomeComponents';
 import Contact from './ContactConponent';
+import About from './AboutComponents';
 import { DISHES } from '../shared/dishes.js';
 import { LEADERS } from '../shared/leader.js';
 import { PROMOTIONS } from '../shared/promotions.js';
@@ -68,6 +69,12 @@ export class Main extends Component {
           />
           <Route path="/menu/:dishId" component={DishWithId} />
           <Route excat path="/contactus" component={Contact} />
+          <Route
+            excat
+            path="/aboutus"
+            component={() => <About leaders={this.state.leaders} />}
+          />
+
           <Redirect to="/home" />
         </Switch>
 
